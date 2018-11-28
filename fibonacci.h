@@ -18,9 +18,9 @@ extern "C" {
 #include<string.h>
 #include "../memoization/memo_long_int.h"
 void initialize_fibonacci(int argc, char **argv);
-void reset_fibonacci();
-int32_t get_cache_misses_fibonacci();
-int32_t get_cache_hits_fibonacci();
+void reset_fibonacci(long int p);
+long int get_cache_misses_fibonacci();
+long int get_cache_hits_fibonacci();
 void solve_fibonacci();
 
 #ifdef __cplusplus

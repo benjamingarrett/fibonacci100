@@ -47,15 +47,15 @@ void initialize_fibonacci(int argc, char **argv){
   }
 }
 
-void reset_fibonacci(){
+void reset_fibonacci(long int p){
   cache_misses = cache_hits = 0;
 }
 
-int32_t get_cache_misses_fibonacci(){
+long int get_cache_misses_fibonacci(){
   return cache_misses;
 }
 
-int32_t get_cache_hits_fibonacci(){
+long int get_cache_hits_fibonacci(){
   return cache_hits;
 }
 
