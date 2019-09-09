@@ -7,6 +7,7 @@
 const char * fibonacci_n_parameter = "--fibonacci_n";
 const char * fibonacci_version_parameter = "--fibonacci_version";
 const char * solutions_fname = "solutions_fibonacci";
+const char * fibonacci_execution_trace_fname_parameter = "--fibonacci_execution_trace_fname";
 
 int64_t N;
 int8_t version;
@@ -82,6 +83,9 @@ char (*check_preemptive_halt_fibonacci_)();
 char check_preemptive_halt_fibonacci_activated();
 char check_preemptive_halt_fibonacci_deactivated();
 
+char execution_trace_fname[400];
+FILE * fp;
+
 /* PUBLIC */
 
 void initialize_fibonacci(int argc, char **argv){
@@ -89,7 +93,8 @@ void initialize_fibonacci(int argc, char **argv){
   cache_misses = 0;
   char version[10];
   char found_version = 0;
-  for(int g = 1; g < argc; g++){
+  int64_t g;
+  for(g = 1; g < argc; g++){
     if(strcmp(argv[g], fibonacci_n_parameter) == 0){
       if(g+1 < argc){
         N = (int32_t) atoi(argv[++g]);
@@ -99,6 +104,11 @@ void initialize_fibonacci(int argc, char **argv){
       if(g+1 < argc){
         strcpy(version, argv[++g]);
         found_version = 1;
+      }
+    }
+    if(strcmp(argv[g], fibonacci_execution_trace_fname_parameter) == 0){
+      if(g+1 < argc){
+        strcpy(execution_trace_fname,&argv[++g][0]);
       }
     }
   }
@@ -168,8 +178,8 @@ void initialize_fibonacci(int argc, char **argv){
     fprintf(stderr, "Parameter --fibonacci_n not supplied, abort.\n");
     exit(1);
   }
-  printf("initialize_fibonacci, N = %ld\n", N);
-  printf("initialize_fibonacci, version = %s\n", version);
+  fp=fopen(execution_trace_fname,"a");fprintf(fp,"initialize_fibonacci, N = %ld\n", N);fclose(fp);
+  fp=fopen(execution_trace_fname,"a");fprintf(fp,"initialize_fibonacci, version = %s\n", version);fclose(fp);
 }
 
 void reset_fibonacci(long int p){
@@ -181,9 +191,9 @@ long int get_cache_misses_fibonacci(){
 }
 
 void solve_fibonacci(){
-  //printf("solve_fibonacci\n");
+  fp=fopen(execution_trace_fname,"a");fprintf(fp,"solve_fibonacci\n");fclose(fp);
   int64_t result = fibonacci(N);
-  printf("Done. fibonacci(%ld)=%ld\n", N, result);
+  fp=fopen(execution_trace_fname,"a");fprintf(fp,"Done. fibonacci(%ld)=%ld\n", N, result);fclose(fp);
   /*
   FILE * fp = fopen(solutions_fname, "a");
   if(fp == NULL){
