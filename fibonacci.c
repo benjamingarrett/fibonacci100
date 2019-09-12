@@ -83,7 +83,7 @@ char (*check_preemptive_halt_fibonacci_)();
 char check_preemptive_halt_fibonacci_activated();
 char check_preemptive_halt_fibonacci_deactivated();
 
-char execution_trace_fname[400];
+char fibonacci_execution_trace_fname[400];
 FILE * fp;
 
 /* PUBLIC */
@@ -108,7 +108,7 @@ void initialize_fibonacci(int argc, char **argv){
     }
     if(strcmp(argv[g], fibonacci_execution_trace_fname_parameter) == 0){
       if(g+1 < argc){
-        strcpy(execution_trace_fname,&argv[++g][0]);
+        strcpy(fibonacci_execution_trace_fname,&argv[++g][0]);
       }
     }
   }
@@ -178,8 +178,8 @@ void initialize_fibonacci(int argc, char **argv){
     fprintf(stderr, "Parameter --fibonacci_n not supplied, abort.\n");
     exit(1);
   }
-  fp=fopen(execution_trace_fname,"a");fprintf(fp,"initialize_fibonacci, N = %ld\n", N);fclose(fp);
-  fp=fopen(execution_trace_fname,"a");fprintf(fp,"initialize_fibonacci, version = %s\n", version);fclose(fp);
+  fp=fopen(fibonacci_execution_trace_fname,"a");fprintf(fp,"initialize_fibonacci, N = %ld\n", N);fclose(fp);
+  fp=fopen(fibonacci_execution_trace_fname,"a");fprintf(fp,"initialize_fibonacci, version = %s\n", version);fclose(fp);
 }
 
 void reset_fibonacci(long int p){
@@ -191,9 +191,9 @@ long int get_cache_misses_fibonacci(){
 }
 
 void solve_fibonacci(){
-  fp=fopen(execution_trace_fname,"a");fprintf(fp,"solve_fibonacci\n");fclose(fp);
+  fp=fopen(fibonacci_execution_trace_fname,"a");fprintf(fp,"solve_fibonacci\n");fclose(fp);
   int64_t result = fibonacci(N);
-  fp=fopen(execution_trace_fname,"a");fprintf(fp,"Done. fibonacci(%ld)=%ld\n", N, result);fclose(fp);
+  fp=fopen(fibonacci_execution_trace_fname,"a");fprintf(fp,"Done. fibonacci(%ld)=%ld\n", N, result);fclose(fp);
   /*
   FILE * fp = fopen(solutions_fname, "a");
   if(fp == NULL){
