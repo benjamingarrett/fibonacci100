@@ -204,23 +204,28 @@ int64_t memo_fibonacci_0a(int64_t n){
   if(n<0){fprintf(stderr,"memo_fibonacci_0a, n=%ld\n",n);exit(1);}
   if(n==0) return 0;
   if(n==1) return 1;
-  return fibonacci(n-1)+fibonacci(n-2);
+  int64_t f1=fibonacci(n-1);
+  int64_t f2=fibonacci(n-2);
+  return f1+f2;
 }
 int64_t memo_fibonacci_0b(int64_t n){
   if(n<0){fprintf(stderr,"memo_fibonacci_0b, n=%ld\n",n);exit(1);}
   if(n==0) return 0;
   if(n==1) return 1;
-  return fibonacci(n-2)+fibonacci(n-1);
+  int64_t f2=fibonacci(n-2);
+  int64_t f1=fibonacci(n-1);
+  return f1+f2;
 }
 int64_t memo_fibonacci_0c(int64_t n){
   if(n<0){fprintf(stderr,"memo_fibonacci_0c, n=%ld\n",n);exit(1);}
   if(n==0) return 0;
   if(n==1) return 1;
-  if(n%2==1) return fibonacci(n-1)+fibonacci(n-2);
-  else return fibonacci(n-2)+fibonacci(n-1);
+  int64_t f1,f2;
+  if(n%2==1){f1=fibonacci(n-1);f2=fibonacci(n-2);return f1+f2;}
+  else{f2=fibonacci(n-2);f1=fibonacci(n-1);return f1+f2;}
 }
 
-int64_t memo_fibonacci_1a(int64_t n){//printf("1a\n");
+int64_t memo_fibonacci_1a(int64_t n){
   if(n<0){fprintf(stderr,"memo_fibonacci_1a, n=%ld\n",n);exit(1);}
   if(n==0)return 0;
   if(n==1)return 1;
