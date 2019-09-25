@@ -19,6 +19,7 @@ int64_t (*memo_fibonacci_)(int64_t n);
 
 int64_t memo_fibonacci_0a(int64_t n);
 int64_t memo_fibonacci_0b(int64_t n);
+int64_t memo_fibonacci_0c(int64_t n);
 
 int64_t memo_fibonacci_1a(int64_t n);
 int64_t memo_fibonacci_1ar(int64_t n);
@@ -99,6 +100,7 @@ void initialize_fibonacci(int argc, char **argv){
   memo_fibonacci_ = NULL;
   if(strcmp(version,"0a") == 0) memo_fibonacci_ = memo_fibonacci_0a;
   if(strcmp(version,"0b") == 0) memo_fibonacci_ = memo_fibonacci_0b;
+  if(strcmp(version,"0c") == 0) memo_fibonacci_ = memo_fibonacci_0c;
   if(strcmp(version,"1a") == 0) memo_fibonacci_ = memo_fibonacci_1a;
   if(strcmp(version,"1ar") == 0) memo_fibonacci_ = memo_fibonacci_1ar;
   if(strcmp(version,"1ar3calls") == 0) memo_fibonacci_ = memo_fibonacci_1ar3calls;
