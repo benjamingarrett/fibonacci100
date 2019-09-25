@@ -62,46 +62,19 @@ f(n){
 v2b swap f1,f2
 v2c swap f3,f4
 v2d swap f5,f6
-
 v2e swap f7,f8
+
 v2f swap f1,f2 & f3,f4
 v2g swap f1,f2 & f5,f6
 v2h swap f1,f2 & f7,f8
-
 v2i swap f3,f4 & f5,f6
 v2j swap f3,f4 & f7,f8
 v2k swap f5,f6 & f7,f8
-v2l swap f1,f2 & f3,f4 & f5,f6
 
+v2l swap f1,f2 & f3,f4 & f5,f6
 v2m swap f1,f2 & f3,f4 & f7,f8
 v2n swap f1,f2 & f5,f6 & f7,f8
 v2o swap f3,f4 & f5,f6 & f7,f8
+
 v2p swap f1,f2 & f3,f4 & f5,f6 & f7,f8
-
-v3a
-
-f(n){
-  k = floor(n/2)
-  if n is even {
-    if k is even {
-      f1 = f(k)
-      f2 = f(k+1)
-      return f1 * (2 * f2 - f1)
-    } else {
-      f3 = f(k)
-      f4 = f(k-1)
-      return f3 * (f3 + 2 * f4)
-    }
-  } else {
-    if k is even {
-      f5 = f(k+1)
-      f6 = f(k)
-      return f5 * (2 * f5 - f6) - power(-1,k)
-    } else {
-      f7 = f(k)
-      f8 = f(k-1)
-      return (f7 + f8) * (f7 + 2 * f8) - power(-1,k)
-    }
-  }
-}
 
