@@ -54,24 +54,12 @@ int64_t memo_fibonacci_2o(int64_t n);
 
 int64_t memo_fibonacci_2p(int64_t n);
 
-/*
-int64_t memo_fibonacci_1(int64_t n);
-int64_t memo_fibonacci_2(int64_t n);
-int64_t memo_fibonacci_3(int64_t n);
-int64_t memo_fibonacci_4(int64_t n);
-int64_t memo_fibonacci_5(int64_t n);
-int64_t memo_fibonacci_6(int64_t n);
-int64_t memo_fibonacci_7(int64_t n);
-*/
-
 char (*check_preemptive_halt_fibonacci_)();
 char check_preemptive_halt_fibonacci_activated();
 char check_preemptive_halt_fibonacci_deactivated();
 
 char fibonacci_execution_trace_fname[400];
 FILE * fp;
-
-/* PUBLIC */
 
 void initialize_fibonacci(int argc, char **argv){
   N = -1;
@@ -228,7 +216,7 @@ int64_t memo_fibonacci_0c(int64_t n){
 }
 
 int64_t memo_fibonacci_1a(int64_t n){
-  if(n<0){fprintf(stderr,"memo_fibonacci_1a, n=%ld\n",n);exit(1);}
+  if(n<0){fopen(fibonacci_execution_trace_fname,"a");fprintf(fp,"Error: memo_fibonacci_1a, n=%ld\n",n);fclose(fp);exit(1);}
   if(n==0)return 0;
   if(n==1)return 1;
   if(n==2)return 1;
@@ -249,9 +237,9 @@ int64_t memo_fibonacci_1a(int64_t n){
 
 int64_t memo_fibonacci_1ar(int64_t n){
   if(n<0){fprintf(stderr,"memo_fibonacci_1ar, n=%ld\n",n);exit(1);}
-  if(n == 0) return 0;
-  if(n == 1) return 1;
-  if(n == 2) return 1;
+  if(n==0) return 0;
+  if(n==1) return 1;
+  if(n==2) return 1;
   int64_t result = -1;
   int64_t k = (int64_t)((double)n/2.0);
   if(n % 2 == 0){
@@ -272,9 +260,9 @@ int64_t memo_fibonacci_1ar(int64_t n){
 
 int64_t memo_fibonacci_1ar3calls(int64_t n){
   if(n<0){fprintf(stderr,"memo_fibonacci_1ar3calls, n=%ld\n",n);exit(1);}
-  if(n == 0) return 0;
-  if(n == 1) return 1;
-  if(n == 2) return 1;
+  if(n==0) return 0;
+  if(n==1) return 1;
+  if(n==2) return 1;
   int64_t result = -1;
   int64_t k = (int64_t)((double)n/2.0);
   if(n % 2 == 0){
@@ -294,9 +282,9 @@ int64_t memo_fibonacci_1ar3calls(int64_t n){
 
 int64_t memo_fibonacci_1ar4calls(int64_t n){
   if(n<0){fprintf(stderr,"memo_fibonacci_1ar4calls, n=%ld\n",n);exit(1);}
-  if(n == 0) return 0;
-  if(n == 1) return 1;
-  if(n == 2) return 1;
+  if(n==0) return 0;
+  if(n==1) return 1;
+  if(n==2) return 1;
   int64_t result = -1;
   int64_t k = (int64_t)((double)n/2.0);
   if(n % 2 == 0){
@@ -318,9 +306,9 @@ int64_t memo_fibonacci_1ar4calls(int64_t n){
 
 int64_t memo_fibonacci_1b(int64_t n){
   if(n<0){fprintf(stderr,"memo_fibonacci_1b, n=%ld\n",n);exit(1);}
-  if(n == 0) return 0;
-  if(n == 1) return 1;
-  if(n == 2) return 1;
+  if(n==0) return 0;
+  if(n==1) return 1;
+  if(n==2) return 1;
   int64_t result = -1;
   int64_t k = (int64_t)((double)n/2.0);
   if(n % 2 == 0){
@@ -338,9 +326,9 @@ int64_t memo_fibonacci_1b(int64_t n){
 
 int64_t memo_fibonacci_1c(int64_t n){
   if(n<0){fprintf(stderr,"memo_fibonacci_1c, n=%ld\n",n);exit(1);}
-  if(n == 0) return 0;
-  if(n == 1) return 1;
-  if(n == 2) return 1;
+  if(n==0) return 0;
+  if(n==1) return 1;
+  if(n==2) return 1;
   int64_t result = -1;
   int64_t k = (int64_t)((double)n/2.0);
   if(n % 2 == 0){
@@ -358,9 +346,9 @@ int64_t memo_fibonacci_1c(int64_t n){
 
 int64_t memo_fibonacci_1d(int64_t n){
   if(n<0){fprintf(stderr,"memo_fibonacci_1d, n=%ld\n",n);exit(1);}
-  if(n == 0) return 0;
-  if(n == 1) return 1;
-  if(n == 2) return 1;
+  if(n==0) return 0;
+  if(n==1) return 1;
+  if(n==2) return 1;
   int64_t result = -1;
   int64_t k = (int64_t)((double)n/2.0);
   if(n % 2 == 0){
