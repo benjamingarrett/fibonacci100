@@ -396,7 +396,7 @@ int64_t memo_fibonacci_2a(int64_t n){
 }
 
 int64_t memo_fibonacci_2ar(int64_t n){
-  if(n<0){fprintf(stderr,"memo_fibonacci_2ar, n=%ld\n",n);exit(1);}
+  if(n<0){fprintf(stderr,"memo_fibonacci_2ar, n=%ld is negative. Abort.\n",n);exit(1);}
   if(n == 0) return 0;
   if(n == 1) return 1;
   //if(n == 2) return 1;
