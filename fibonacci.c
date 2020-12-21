@@ -61,6 +61,10 @@ char check_preemptive_halt_fibonacci_deactivated();
 char fibonacci_execution_trace_fname[400];
 FILE * fp;
 
+int64_t get_problem_size_fibonacci(){
+  return N;
+}
+
 void initialize_fibonacci(int argc, char **argv){
   N = -1;
   cache_misses = 0;

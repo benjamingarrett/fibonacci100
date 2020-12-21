@@ -12,10 +12,10 @@
 extern "C" {
 #endif
 
-  #include<stdint.h>
-  #include<stdio.h>
-  #include<stdlib.h>
-  #include<string.h>
+  #include <stdint.h>
+  #include <stdio.h>
+  #include <stdlib.h>
+  #include <string.h>
   #include "../memoization/memo_long_int.h"
   void initialize_fibonacci(int argc, char **argv);
   void reset_fibonacci(long int p);
@@ -23,6 +23,7 @@ extern "C" {
   void solve_fibonacci();
   void set_cache_miss_threshold_fibonacci(int64_t t);
   void set_preemptive_halt_fibonacci(int p);
+  int64_t get_problem_size_fibonacci();
 
 #ifdef __cplusplus
 }
